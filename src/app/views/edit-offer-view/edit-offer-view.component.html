@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+
+  <div class="col-8 text-center">
+
+    <div
+      *ngIf="msg"
+      class="alert-success rounded text-center">
+      {{msg}}
+    </div>
+
+    <form
+      [formGroup]="editOffer"
+      (ngSubmit)="onSubmitEditOffer()">
+
+      <div class="form-group">
+        <label for="title">Titre de l'annonce</label>
+        <input
+          [(ngModel)]="offer.title"
+          class="form-control"
+          formControlName="title"
+          id="title"
+          placeholder="Titre de l'annonce*"
+          type="text">
+      </div>
+
+      <div class="form-group">
+        <label for="author">Auteur de l'annonce</label>
+        <input
+          [(ngModel)]="offer.author"
+          class="form-control"
+          formControlName="author"
+          id="author"
+          placeholder="Auteur de l'annonce*"
+          type="text">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description de l'annonce</label>
+        <textarea
+          [(ngModel)]="offer.description"
+          class="form-control"
+          formControlName="description"
+          id="description"
+          placeholder="Description de l'annonce*">
+        </textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Prix de l'annonce (en €)</label>
+        <input
+          [(ngModel)]="offer.price"
+          class="form-control"
+          formControlName="price"
+          id="price"
+          placeholder="Prix de l'annonce*"
+          type="text">
+      </div>
+
+      <button
+        [disabled]="editOffer.invalid"
+        class="btn btn-primary"
+        type="submit">
+        Modifier
+      </button>
+
+    </form>
+
+    <button
+      class="btn btn-dark my-2"
+      routerLink="/offers">
+      Retour aux produits
+    </button>
+
+  </div>
+
+</div>

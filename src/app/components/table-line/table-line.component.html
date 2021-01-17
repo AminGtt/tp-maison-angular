@@ -1,0 +1,28 @@
+<td>{{ id }}</td>
+<td>{{ title }}</td>
+<td>{{ author }}</td>
+<td>{{ createdAt | date: "medium" }}</td>
+<td>
+
+  <div class="d-flex">
+
+    <button
+      class="btn btn-dark"
+      [routerLink]="showUrl">
+      Détails
+    </button>
+
+    <button
+      class="btn btn-success mx-1"
+      [routerLink]=editUrl>
+      Modifier
+    </button>
+
+    <button
+      class="btn btn-secondary mx-1"
+      [routerLink]="onClickDeleteOffer(id)">
+      Supprimer
+    </button>
+  </div>
+
+</td>

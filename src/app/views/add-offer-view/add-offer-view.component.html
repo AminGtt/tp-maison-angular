@@ -1,0 +1,70 @@
+<div class="text-center">
+  <div class="row justify-content-center">
+    <div class="col-8">
+
+      <button
+        class="btn btn-outline-primary mx-2 my-2 py-2 px-3"
+        routerLink="/offers">
+          Retour aux annonces
+      </button>
+
+      <form
+        #newOffer="ngForm"
+        (ngSubmit)="onSubmitAddOffer(newOffer)">
+
+        <label for="title">Titre de l'annonce</label>
+        <input type="text"
+               placeholder="Titre de l'annonce*"
+               class="form-control"
+               name="title"
+               id="title"
+               ngModel
+               required>
+
+        <label for="author">
+          Nom de l'auteur de l'annonce
+        </label>
+        <input name="author"
+               type
+               id="author"
+               placeholder="Nom de l'auteur*"
+               class="form-control"
+               ngModel
+               required>
+
+        <label for="description">
+          Description de l'annonce
+        </label>
+        <textarea name="description"
+               id="description"
+               type="text"
+               placeholder="Description*"
+               class="form-control"
+               ngModel
+               required
+               minlength="10"
+               maxlength="258">
+        </textarea>
+
+        <label for="price">
+          Prix de l'annonce (en €)
+        </label>
+        <input name="price"
+               id="price"
+               type="text"
+               placeholder="Prix de l'annonce*"
+               class="form-control"
+               ngModel
+               required>
+
+        <button
+          class="btn btn-primary my-3"
+          type="submit"
+          [disabled]="newOffer.invalid">
+          Ajouter !
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>

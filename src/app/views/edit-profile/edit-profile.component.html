@@ -1,0 +1,51 @@
+<div
+  *ngIf="msg"
+  class="alert-success rounded text-center">
+  {{msg}}
+</div>
+
+<form
+  [formGroup]="editUser"
+  (ngSubmit)="onSubmitEditUser()">
+
+  <div class="form-group">
+    <label for="fullname">Nom et prénom</label>
+    <input
+      [(ngModel)]="user.fullName"
+      class="form-control"
+      formControlName="fullname"
+      id="fullname"
+      placeholder="Nom et prénom*"
+      type="text">
+  </div>
+
+  <div class="form-group">
+    <label for="mail">Adresse mail</label>
+    <input
+      [(ngModel)]="user.mail"
+      class="form-control"
+      formControlName="mail"
+      id="mail"
+      placeholder="Adresse mail*"
+      type="email">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Nom et prénom</label>
+    <input
+      [(ngModel)]="user.password"
+      class="form-control"
+      formControlName="password"
+      id="password"
+      placeholder="Mot de passe*"
+      type="password">
+  </div>
+
+  <button
+    [disabled]="editUser.invalid"
+    class="btn btn-primary my-2"
+    type="submit">
+    Modifier
+  </button>
+
+</form>

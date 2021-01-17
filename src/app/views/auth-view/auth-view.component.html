@@ -1,0 +1,44 @@
+<form
+  (ngSubmit)="onSubmitLogin(authForm)"
+  #authForm='ngForm'>
+
+  <div
+    *ngIf="errorMsg"
+    class="alert-danger rounded text-center">
+    {{ errorMsg }}
+  </div>
+
+  <div class="form-group">
+    <label
+      for="mail">
+      Adresse e-mail
+    </label>
+    <input
+      type="email"
+      class="form-control"
+      id="mail"
+      name="mail"
+      ngModel
+      required>
+  </div>
+
+  <div class="form-group">
+    <label
+      for="password">
+      Mot de Passe
+    </label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      ngModel
+      required>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="authForm.invalid">
+    Envoyer
+  </button>
+</form>
