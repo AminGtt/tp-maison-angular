@@ -12,12 +12,12 @@ import {EditProfileComponent} from './views/edit-profile/edit-profile.component'
 
 const routes: Routes = [
   { path: '', component: AuthViewComponent},
-  { path: 'offers', component: OffersViewComponent},
-  { path: 'offers/new', component: AddOfferViewComponent},
-  { path: 'offers/edit/:id', component: EditOfferViewComponent},
-  { path: 'offers/:id', component: SingleOfferViewComponent},
-  { path: 'profile', component: ProfileViewComponent},
-  { path: 'profile/edit', component: EditProfileComponent},
+  { path: 'offers', canActivate:[AuthGuard] ,component: OffersViewComponent},
+  { path: 'offers/new', canActivate:[AuthGuard], component: AddOfferViewComponent},
+  { path: 'offers/edit/:id', canActivate:[AuthGuard], component: EditOfferViewComponent},
+  { path: 'offers/:id', canActivate:[AuthGuard], component: SingleOfferViewComponent},
+  { path: 'profile', canActivate:[AuthGuard], component: ProfileViewComponent},
+  { path: 'profile/edit', canActivate:[AuthGuard], component: EditProfileComponent},
   { path: 'not-found', component: NotFoundViewComponent},
   { path: '**', redirectTo: 'not-found'},
 ];
